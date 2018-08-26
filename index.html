@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+        crossorigin="anonymous">
+    <link rel="stylesheet" href="css/main.css">
+    <style>
+        body { background-color: darkgreen;}
+        .col {
+            background-color: black;
+            color:greenyellow;
+            height: 20px;
+            width: 1%;
+            
+
+
+        }
+
+        .col:hover {
+
+            -webkit-animation: flip-2-hor-top-1 1.5s cubic-bezier(0.455, 0.030, 0.515, 0.955) both;
+            animation: flip-2-hor-top-1 1.5s cubic-bezier(0.455, 0.030, 0.515, 0.955) both;
+        }
+
+        .fluid-container {
+            margin:50px;
+        }
+
+        #7 {
+            color: black;
+        }
+
+        @-webkit-keyframes flip-2-hor-top-1 {
+            0% {
+                -webkit-transform: translateY(0) rotateX(0);
+                transform: translateY(0) rotateX(0);
+                -webkit-transform-origin: 50% 0%;
+                transform-origin: 50% 0%;
+            }
+            100% {
+                -webkit-transform: translateY(-100%) rotateX(-180deg);
+                transform: translateY(-100%) rotateX(-180deg);
+                -webkit-transform-origin: 50% 100%;
+                transform-origin: 50% 100%;
+            }
+        }
+
+        @keyframes flip-2-hor-top-1 {
+            0% {
+                -webkit-transform: translateY(0) rotateX(0);
+                transform: translateY(0) rotateX(0);
+                -webkit-transform-origin: 50% 0%;
+                transform-origin: 50% 0%;
+            }
+            100% {
+                -webkit-transform: translateY(-100%) rotateX(-180deg);
+                transform: translateY(-100%) rotateX(-180deg);
+                -webkit-transform-origin: 50% 100%;
+                transform-origin: 50% 100%;
+                ;
+            }
+        }
+    </style>
+
+</head>
+
+<body id='body' onload='main()'>
+
+    <div class="container-fluid">
+        <div id='row'>
+
+        </div>
+    </div>
+    <script>
+        function main() {
+            let r  ="string"
+            r = Math.random().toString(36).substring(7);
+          
+            css =
+                " -webkit-animation: flip-2-hor-top-1 1.5s cubic-bezier(0.455, 0.030, 0.515, 0.955) both; animation: flip-2-hor-top-1 1.5s cubic-bezier(0.455, 0.030, 0.515, 0.955) both;";
+                
+            for (let i = 0; i < 400; i = i+10 ) {
+                 
+                 
+                //    setTimeout(function(){
+                divs(i, i + 10);
+             
+             
+                //}, i*10);
+            }
+
+ for(let rep=0; rep<100; rep++) {
+            let col = document.querySelectorAll('div.col');
+            for (let i = 0; i < 400; i=i+10) {
+                for (let a = 0; a < 10; a++) {
+                setTimeout(function () {
+                    // col[i].style.backgroundColor = 'blue';
+                    document.getElementById(a+i).style = css
+                    r = Math.random().toString(36).substring(12);
+                    var div = document.getElementById(a+i);
+             div.innerHTML = r;
+             if (i==60) { 
+                document.getElementById(i+1).style = "color:white"
+                document.getElementById(i+1).innerHTML="M"
+                document.getElementById(i+1).style = "color:white"
+                document.getElementById(i+2).innerHTML="I"
+                document.getElementById(i+2).style = "color:white"
+                document.getElementById(i+3).innerHTML="G"
+                document.getElementById(i+3).style = "color:white"
+                document.getElementById(i+4).innerHTML="A"
+                document.getElementById(i+4).style = "color:white"
+                document.getElementById(i+5).innerHTML="C"
+                document.getElementById(i+5).style = "color:white"
+                document.getElementById(i+6).innerHTML="Z"
+                document.getElementById(i+6).style = "color:white"
+                document.getElementById(i+7).innerHTML="8"
+                document.getElementById(i+7).style = "color:white"
+                document.getElementById(i+8).innerHTML="5"
+                document.getElementById(i+8).style = "color:white"
+                 }
+                if(i==70) {
+                    document.getElementById(i+2).style = "color:white"
+                document.getElementById(i+2).innerHTML="G"
+                document.getElementById(i+3).style = "color:white"
+                document.getElementById(i+3).innerHTML="I"
+                document.getElementById(i+2).style = "color:white"
+                document.getElementById(i+4).innerHTML="T"
+                document.getElementById(i+4).style = "color:white"
+                document.getElementById(i+5).innerHTML="H"
+                document.getElementById(i+5).style = "color:white"
+                document.getElementById(i+6).innerHTML="U"
+                document.getElementById(i+6).style = "color:white"
+                document.getElementById(i+7).innerHTML="B"
+                document.getElementById(i+7).style = "color:white"
+                }
+
+                }, a * 100+rep*50);
+                
+                setTimeout(function () {
+                    // col[i].style.backgroundColor = 'white';
+                    // div = document.getElementById(20).innerHTML="Marcin";
+                }, 0)
+            }
+            }
+ }
+
+        }
+        function divs(start, stop) {
+            var chartContainer = "row"
+            var container = document.createElement("div");
+            var text = "";
+            var blockDiv, textSpan; // used in the for loop
+
+            container.className = "row";
+            document.getElementById(chartContainer.replace("#", "")).appendChild(container);
+
+            for (var i = start; i < stop; i++) {
+                blockDiv = document.createElement("div");
+                blockDiv.className = "col";
+                blockDiv.id = i;
+                textSpan = document.createElement("span");
+                textSpan.append(text); // see note about browser compatibility
+                blockDiv.append(textSpan);
+                container.append(blockDiv);
+            }
+        }
+    </script>
+
+</body>
+
+</html>
